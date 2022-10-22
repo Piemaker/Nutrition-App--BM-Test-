@@ -7,7 +7,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+//* this adds the app key & app id as a query param to all http requests
 @Injectable()
 export class EdamamAPIInterceptor implements HttpInterceptor {
   constructor() {}
