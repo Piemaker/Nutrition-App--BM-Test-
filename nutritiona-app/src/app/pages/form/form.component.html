@@ -1,11 +1,19 @@
-<form [formGroup]="ingredientsForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-        <mat-label>Ingredients</mat-label>
-        <textarea formControlName="ingredients" placeholder="1 cup rice&#10;10 oz chickpeas" matInput></textarea>
-        <mat-hint>Enter quantity, scale then name</mat-hint>
-        <mat-error *ngIf="ingredientsForm.get('ingredients')?.invalid
-        && ingredientsForm.get('ingredients')?.touched">This
-            field is required!</mat-error>
-    </mat-form-field>
-    <button [disabled]="!ingredientsForm.valid" type="submit" mat-raised-button color="accent">Analyze</button>
+<form [formGroup]="ingredientsForm" (ngSubmit)="onSubmit($event)">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div *ngIf="!isLoading" class="form-field">
+        <h2 class="mat-body-1">
+            Enter ingredient list separated by new line.
+        </h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Ingredients</mat-label>
+            <textarea formControlName="ingredients" placeholder="1 cup rice&#10;10 oz chickpeas" matInput
+                cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="10" cdkAutosizeMaxRows="25"
+                cols=20></textarea>
+            <mat-hint>Enter quantity, scale then name</mat-hint>
+            <mat-error *ngIf="ingredientsForm.get('ingredients')?.invalid
+            && ingredientsForm.get('ingredients')?.touched">This
+                field is required!</mat-error>
+        </mat-form-field>
+        <button [disabled]="!ingredientsForm.valid" type="submit" mat-raised-button color="accent">Analyze</button>
+    </div>
 </form>

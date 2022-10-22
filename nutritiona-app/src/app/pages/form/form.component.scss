@@ -1,0 +1,25 @@
+form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-field {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  button {
+    margin: auto;
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .form-field {
+    width: 50%;
+  }
+}

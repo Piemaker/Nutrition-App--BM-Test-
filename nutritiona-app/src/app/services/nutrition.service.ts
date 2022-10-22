@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-//TODO add logic to receive user data
 export class NutritionService {
   constructor(private _httpClient: HttpClient) {}
   postNutritionData(formData : FormDataI ) {
