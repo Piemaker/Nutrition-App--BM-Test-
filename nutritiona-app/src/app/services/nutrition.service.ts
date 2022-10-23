@@ -1,4 +1,5 @@
-import { FormDataI } from './../models/formData';
+import { ResponseI } from './../models/interfaces';
+import { FormDataI } from '../models/interfaces';
 import { environment } from './../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -8,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class NutritionService {
-  nutritionsChange = new BehaviorSubject<any | null>({});
+  nutritionsChange = new BehaviorSubject<ResponseI | any>({});
 
   constructor(private _httpClient: HttpClient) {}
-  postNutritionData(formData: FormDataI) {
-    return this._httpClient.post(environment.BASE_URL, formData);
+  postNutritionData({ formData }: { formData: FormDataI; }): Observable<ResponseI> {
+    return this._httpClient.post<ResponseI>(environment.BASE_URL, formData);
   }
 }

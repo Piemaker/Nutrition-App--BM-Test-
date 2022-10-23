@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
 
   ingredientsForm!: FormGroup;
   isLoading = false;
-  nutritionSubscription : Subscription | undefined
+  nutritionSubscription: Subscription | undefined;
 
   constructor(
     private _nutritionService: NutritionService,
@@ -45,23 +45,25 @@ export class FormComponent implements OnInit {
 
     let ingredientsObj = { ingr: ingredientsArr };
 
-    this._nutritionService.postNutritionData(ingredientsObj).subscribe({
-      next: (data) => {
-        this._nutritionService.nutritionsChange.next(data);
-         this.router.navigate(['/details']);
-      },
-      error: (err: Error) => {
-        this.openSnackBar(err.message, 'Close');
-        this.isLoading = false;
-      },
-      complete: () => {
-        this.isLoading = false;
-      },
-    });
+    this._nutritionService
+      .postNutritionData({ formData: ingredientsObj })
+      .subscribe({
+        next: (data) => {
+          this._nutritionService.nutritionsChange.next(data);
+          this.router.navigate(['/details']);
+        },
+        error: (err: Error) => {
+          this.openSnackBar(err.message, 'Close');
+          this.isLoading = false;
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
   }
-  ngOnInit(): void { }
-  
+  ngOnInit(): void {}
+
   ngOnDestroy() {
-    this.nutritionSubscription?.unsubscribe()
+    this.nutritionSubscription?.unsubscribe();
   }
 }

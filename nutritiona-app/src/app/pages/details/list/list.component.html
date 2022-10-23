@@ -1,1 +1,19 @@
-<p>list works!</p>
+<table class = "table" matSort (matSortChange)="sortData($event)">
+    <tr>
+        <th mat-sort-header="Qty">Qty</th>
+        <th mat-sort-header="Unit">Unit</th>
+        <th mat-sort-header="Food">Food</th>
+        <th mat-sort-header="Calories">Calories</th>
+        <th mat-sort-header="Weight">Weight</th>
+    </tr>
+
+    <tr style="word-wrap:break-word;" *ngFor="let ingredient of ingredients">
+        <td>{{ingredient.quantity}}</td>
+        <td>{{ingredient.measure}}</td>
+        <td>{{ingredient.food}}</td>
+        <td>{{ingredient.nutrients.ENERC_KCAL.quantity | number: '1.0-2'}} Kcal</td>
+        <td>{{ingredient.weight | number: '1.0-2'}} g</td>
+
+       
+    </tr>
+</table>
