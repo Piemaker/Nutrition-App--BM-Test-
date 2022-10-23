@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NutritionService } from './../../services/nutrition.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,15 +14,23 @@ export class FormComponent implements OnInit {
   @ViewChild('autosize') autosize: CdkTextareaAutosize | undefined;
 
   ingredientsForm!: FormGroup;
-  payload = { ingr: ['1 cup rice,', '10 oz chickpeas', '2 apples'] };
+  // payload = { ingr: ['1 cup rice,', '10 oz chickpeas', '2 apples'] };
   isLoading = false;
 
-  constructor(private _nutritionService: NutritionService) {
+  constructor(
+    private _nutritionService: NutritionService,
+    private _snackBar: MatSnackBar
+  ) {
     this.initForm();
   }
   private initForm() {
     this.ingredientsForm = new FormGroup({
       ingredients: new FormControl(null, Validators.required),
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
     });
   }
   onSubmit(event: SubmitEvent) {
@@ -38,6 +47,7 @@ export class FormComponent implements OnInit {
         console.log(data);
       },
       error: (err: Error) => {
+        this.openSnackBar(err.message, 'Close');
         this.isLoading = false;
       },
       complete: () => {
