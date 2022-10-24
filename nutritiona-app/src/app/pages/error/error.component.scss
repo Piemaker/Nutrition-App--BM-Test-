@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    min-height: calc(100vh - 168px);
+  img {
+
+    max-width: 100%;
+    height: auto;
+  }
+}

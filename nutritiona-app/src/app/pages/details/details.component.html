@@ -1,4 +1,4 @@
-<section class="container">
+<section *ngIf="data" class="container">
     <app-list [ingredients]="ingredientList"></app-list>
     <app-facts [factsData]="data"></app-facts>
 </section>

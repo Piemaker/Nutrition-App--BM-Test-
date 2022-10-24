@@ -11,13 +11,8 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(
-      '🚀 ~ file: list.component.ts ~ line 13 ~ ListComponent ~ constructor ~ this.ingredients',
-      this.ingredients
-    );
   }
   sortData(sort: Sort) {
-    console.log("🚀 ~ file: list.component.ts ~ line 20 ~ ListComponent ~ sortData ~ sort", sort)
     const data = this.ingredients.slice();
     if (!sort.active || sort.direction === '') {
       this.ingredients = data;

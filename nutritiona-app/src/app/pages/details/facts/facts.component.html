@@ -1,18 +1,3 @@
-<!-- <section class="nutrition-facts">
-    <h1 class="nutrition-facts__header">Nutrition Facts</h1>
-    <div class=" nutrition-facts__divider  nutrition-facts__divider--lg"></div>
-    <p class="nutrition-facts--m-top nutrition-facts--bold">amount per serving</p>
-    <h2 class="nutrition-facts__header nutrition-facts--m-top">calories <span>1714</span></h2>
-    <div class=" nutrition-facts__divider nutrition-facts__divider--md"></div>
-    <p><span class="nutrition-facts--sm-text nutrition-facts--bold">% daily value*</span></p>
-    <div class=" nutrition-facts__divider nutrition-facts__divider--sm"></div>
-    <p>total fat<span class="nutrition-facts--sm-text nutrition-facts--bold">% daily value*</span></p>
-    <div class=" nutrition-facts__divider nutrition-facts__divider--sm"></div>
-    <p class="nutrition-facts--indent-left">total fat<span class="nutrition-facts--sm-text nutrition-facts--bold">% daily value*</span></p>
-    <p>total fat<span class="nutrition-facts--sm-text nutrition-facts--bold">% daily value*</span></p>
-
-</section> -->
-
 <section *ngIf="factsData" class="nutrition-facts">
     <div class="nutrition-facts__header">
         <h1 class="nutrition-facts__title">Nutrition Facts</h1>
@@ -26,25 +11,25 @@
         <tbody>
             <tr>
                 <th class="nutrition-facts__sub-title thick-border margin-y" colspan="2"><b>Calories</b></th>
-                <td class="thick-border">{{factsData.totalNutrients.ENERC_KCAL.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.ENERC_KCAL.unit}}</td>
+                <td class="thick-border">{{factsData.totalNutrients?.ENERC_KCAL?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.ENERC_KCAL?.unit}}</td>
 
             </tr>
             <tr>
                 <td colspan="3" class="small-info"><b>% Daily Value*</b></td>
             </tr>
             <tr>
-                <th colspan="2"><b>Total Fat</b> {{factsData.totalNutrients.FAT.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.FAT.unit}}</th>
-                <td><b>{{factsData.totalDaily.FAT.quantity | number: '1.0-1'}}
-                {{factsData.totalDaily.FAT.unit}}</b></td>
+                <th colspan="2"><b>Total Fat</b> {{factsData.totalNutrients?.FAT?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.FAT?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.FAT?.quantity | number: '1.0-1'}}
+                {{factsData.totalDaily?.FAT?.unit}}</b></td>
             </tr>
             <tr>
                 <td class="blank-cell"></td>
-                <th>Saturated Fat {{factsData.totalNutrients.FASAT.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.FASAT.unit}}</th>
-                <td><b>{{factsData.totalDaily.FASAT.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.FASAT.unit}}</b></td>
+                <th>Saturated Fat {{factsData.totalNutrients?.FASAT?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.FASAT?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.FASAT?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.FASAT?.unit}}</b></td>
             </tr>
             <tr>
                 <td class="blank-cell"></td>
@@ -52,70 +37,65 @@
                 <td></td>
             </tr>
             <tr>
-                <th colspan="2"><b>Cholesterol</b> {{factsData.totalNutrients.CHOLE.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.CHOLE.unit}}</th>
-                <td><b>{{factsData.totalDaily.CHOLE.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.CHOLE.unit}}</b></td>
+                <th colspan="2"><b>Cholesterol</b> {{factsData.totalNutrients?.CHOLE?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.CHOLE?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.CHOLE?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.CHOLE?.unit}}</b></td>
             </tr>
             <tr>
-                <th colspan="2"><b>Sodium</b> {{factsData.totalNutrients.NA.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.NA.unit}}</th>
-                <td><b>{{factsData.totalDaily.NA.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.NA.unit}}</b></td>
+                <th colspan="2"><b>Sodium</b> {{factsData.totalNutrients?.NA?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.NA?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.NA?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.NA?.unit}}</b></td>
             </tr>
             <tr>
-                <th colspan="2"><b>Total Carbohydrate</b> {{factsData.totalNutrients.CHOCDF.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.CHOCDF.unit}}</th>
-                <td><b>{{factsData.totalDaily.CHOCDF.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.CHOCDF.unit}}</b></td>
-            </tr>
-            <tr>
-                <td class="blank-cell"></td>
-                <th>Dietary Fiber {{factsData.totalNutrients.FIBTG.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.FIBTG.unit}}</th>
-                <td><b>{{factsData.totalDaily.FIBTG.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.FIBTG.unit}}</b></td>
+                <th colspan="2"><b>Total Carbohydrate</b> {{factsData.totalNutrients?.CHOCDF?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.CHOCDF?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.CHOCDF?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.CHOCDF?.unit}}</b></td>
             </tr>
             <tr>
                 <td class="blank-cell"></td>
-                <th>Total Sugars {{factsData.totalNutrients.SUGAR.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.SUGAR.unit}}</th>
-                <td></td>
+                <th>Dietary Fiber {{factsData.totalNutrients?.FIBTG?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.FIBTG?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.FIBTG?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.FIBTG?.unit}}</b></td>
             </tr>
             <tr>
                 <td class="blank-cell"></td>
-                <th>Includes - Added Sugars</th>
+                <th>Total Sugars {{factsData.totalNutrients?.SUGAR?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.SUGAR?.unit}}</th>
                 <td></td>
             </tr>
             <tr class="thick-end">
-                <th colspan="2"><b>Protein</b> {{factsData.totalNutrients.PROCNT.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.PROCNT.unit}}</th>
-                <td><b>{{factsData.totalDaily.PROCNT.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.PROCNT.unit}}</b></td>
+                <th colspan="2"><b>Protein</b> {{factsData.totalNutrients?.PROCNT?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.PROCNT?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.PROCNT?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.PROCNT?.unit}}</b></td>
             </tr>
             <tr>
-                <th colspan="2">Vitamin D {{factsData.totalNutrients.VITD.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.VITD.unit}}</th>
-                <td><b>{{factsData.totalDaily.VITD.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.VITD.unit}}</b></td>
+                <th colspan="2">Vitamin D {{factsData.totalNutrients?.VITD?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.VITD?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.VITD?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.VITD?.unit}}</b></td>
             </tr>
             <tr>
-                <th colspan="2">Calcium {{factsData.totalNutrients.CA.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.CA.unit}}</th>
-                <td><b>{{factsData.totalDaily.CA.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.CA.unit}}</b></td>
+                <th colspan="2">Calcium {{factsData.totalNutrients?.CA?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.CA?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.CA?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.CA?.unit}}</b></td>
             </tr>
             <tr>
-                <th colspan="2">Iron {{factsData.totalNutrients.FE.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.FE.unit}}</th>
-                <td><b>{{factsData.totalDaily.FE.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.FE.unit}}</b></td>
+                <th colspan="2">Iron {{factsData.totalNutrients?.FE?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.FE?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.FE?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.FE?.unit}}</b></td>
             </tr>
             <tr class="thin-end">
-                <th colspan="2">Potassium {{factsData.totalNutrients.K.quantity | number: '1.0-0'}}
-                    {{factsData.totalNutrients.K.unit}}</th>
-                <td><b>{{factsData.totalDaily.K.quantity | number: '1.0-0'}}
-                {{factsData.totalDaily.K.unit}}</b></td>
+                <th colspan="2">Potassium {{factsData.totalNutrients?.K?.quantity | number: '1.0-0'}}
+                    {{factsData.totalNutrients?.K?.unit}}</th>
+                <td><b>{{factsData.totalDaily?.K?.quantity | number: '1.0-0'}}
+                {{factsData.totalDaily?.K?.unit}}</b></td>
             </tr>
         </tbody>
     </table>

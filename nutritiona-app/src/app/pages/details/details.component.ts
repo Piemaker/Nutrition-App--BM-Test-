@@ -24,10 +24,6 @@ export class DetailsComponent implements OnInit {
         this.ingredientList.push(ingredient.parsed[0]);
       });
     });
-    // resp.ingredients.map((ingredient) => {
-    //   this.ingredientList.push(ingredient.parsed[0]);
-    // });
-    // resp.totalNutrientsKCal.ENERC_KCAL;
   }
   ngOnDestroy() {
     this.nutritionSubscription?.unsubscribe();
