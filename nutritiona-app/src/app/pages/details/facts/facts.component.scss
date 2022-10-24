@@ -1,0 +1,60 @@
+p,
+b {
+  margin: 0;
+}
+b {
+  text-align: right !important;
+  width: 100% !important;
+}
+.nutrition-facts {
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: 1px solid black;
+  padding: 1rem;
+  &__header {
+    margin: 1rem 0 1rem 0;
+  }
+
+  &__title {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 10px solid black;
+  }
+  &__sub-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &__table {
+    border-spacing: 0;
+    text-align: left;
+    th {
+      font-weight: 400;
+    }
+    th,
+    td {
+      padding: 0.25rem 1rem 0.25rem 1rem;
+      border-bottom: 1px solid black;
+    }
+    td {
+      text-align: right;
+    }
+  }
+}
+.blank-cell {
+  border: none !important;
+  width: 0.5rem;
+}
+.small-info {
+  font-size: 0.6rem;
+}
+.no-border{
+    border : none !important;
+}
+.thick-border{
+    border-bottom: 5px solid black !important;
+}
+.margin-y{
+    margin : 0.5rem 0 0.5rem 0;
+}

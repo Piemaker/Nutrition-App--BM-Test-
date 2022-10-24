@@ -11,7 +11,10 @@ export interface ResponseI {
   ingredients: Ingredient[];
   totalNutrientsKCal: TotalNutrientsKCal;
 }
-
+export interface FactList {
+  totalNutrients: TotalNutrients;
+  totalDaily: TotalDaily;
+}
 interface TotalNutrientsKCal {
   ENERC_KCAL: ENERCKCAL;
   PROCNT_KCAL: ENERCKCAL;

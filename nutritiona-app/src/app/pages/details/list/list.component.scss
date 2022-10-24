@@ -1,23 +1,16 @@
 .table {
-  padding: 1rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  font-size: 0.75rem;
+  font-size: 1rem;
+  border-collapse: collapse;
 
-  tr {
-    color: green;
-
-    th {
-    }
-    td {
-      padding: 1rem 1rem 0 0;
-      font-size: 0.9em;
-    }
+  td,th {
+    padding: 1rem 0.5rem 0.5rem 1rem;
+    font-size: 0.9em;
   }
 }
 
 @media only screen and (min-width: 600px) {
   .table {
     min-width: 500px;
-    font-size: 1rem;
   }
 }

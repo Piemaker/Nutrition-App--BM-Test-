@@ -1,4 +1,4 @@
-<table class = "table" matSort (matSortChange)="sortData($event)">
+<table class="table"  matSort (matSortChange)="sortData($event)">
     <tr>
         <th mat-sort-header="Qty">Qty</th>
         <th mat-sort-header="Unit">Unit</th>
@@ -14,6 +14,6 @@
         <td>{{ingredient.nutrients.ENERC_KCAL.quantity | number: '1.0-2'}} Kcal</td>
         <td>{{ingredient.weight | number: '1.0-2'}} g</td>
 
-       
+
     </tr>
 </table>
