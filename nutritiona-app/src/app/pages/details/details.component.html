@@ -1,4 +1,7 @@
 <section *ngIf="data" class="container">
     <app-list [ingredients]="ingredientList"></app-list>
-    <app-facts [factsData]="data"></app-facts>
+
+    <app-facts *ngIf = "isShowFacts" [factsData]="data"></app-facts>
+
+    <button type="button" (click)="toggleFacts()" mat-raised-button color="accent">{{isShowFacts?"Hide/Total Nutrients":"Show/Total Nutrients"}}</button>
 </section>

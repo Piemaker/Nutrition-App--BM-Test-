@@ -8,7 +8,7 @@
     </tr>
 
     <tr style="word-wrap:break-word;" *ngFor="let ingredient of ingredients">
-        <td>{{ingredient.quantity}}</td>
+        <td>{{ingredient?.quantity}}</td>
         <td>{{ingredient.measure}}</td>
         <td>{{ingredient.food}}</td>
         <td>{{ingredient.nutrients.ENERC_KCAL.quantity | number: '1.0-2'}} Kcal</td>

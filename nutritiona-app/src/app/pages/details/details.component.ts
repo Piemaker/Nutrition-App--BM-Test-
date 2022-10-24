@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
   nutritionSubscription: Subscription | undefined;
   ingredientList: Parsed[] = [];
   data!: ResponseI;
-
+  isShowFacts = false;
   constructor(private _nutritionService: NutritionService) {}
   ngOnInit(): void {
     this._nutritionService.nutritionsChange.subscribe((data: ResponseI) => {
@@ -24,6 +24,9 @@ export class DetailsComponent implements OnInit {
         this.ingredientList.push(ingredient.parsed[0]);
       });
     });
+  }
+  toggleFacts() {
+    this.isShowFacts = !this.isShowFacts;
   }
   ngOnDestroy() {
     this.nutritionSubscription?.unsubscribe();
