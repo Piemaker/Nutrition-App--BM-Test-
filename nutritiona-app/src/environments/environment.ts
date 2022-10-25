@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  APP_KEY: '3cc9f7cb1943ed9082b834a86a78e2c4',
-  APP_ID: 'c7860c9d',
+  APP_KEY: '45b37cf852000da29777e94ba606cae0',
+  APP_ID: '841dea9d',
   BASE_URL: 'https://api.edamam.com/api',
 };
 

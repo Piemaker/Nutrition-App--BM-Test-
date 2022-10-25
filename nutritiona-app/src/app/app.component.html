@@ -1,13 +1,4 @@
-<nav class="nav" mat-tab-nav-bar [tabPanel]="tabPanel">
-   <a mat-tab-link *ngFor="let link of links" (click)="activeLink = link" [active]="activeLink == link" [routerLink]="link" > {{link}} </a>
-</nav>
-<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-<header>
-   <h1 class="mat-display-3 header">
-      <a routerLink="/">
-         <mat-icon class="icon ">reply</mat-icon> Nutrition App <mat-icon class="icon">scale</mat-icon>
-      </a>
-   </h1>
-</header>
+<app-nav></app-nav>
+<app-header></app-header>
 <router-outlet>
 </router-outlet>
