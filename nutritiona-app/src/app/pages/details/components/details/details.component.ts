@@ -1,7 +1,8 @@
-import { ResponseI, Parsed, FactList } from './../../models/interfaces';
+import { NutritionService } from './../../../../services/nutrition.service';
+
 import { Subscription } from 'rxjs';
-import { NutritionService } from './../../services/nutrition.service';
 import { Component, OnInit } from '@angular/core';
+import { Parsed, ResponseI } from 'src/app/models/interfaces/interfaces';
 
 @Component({
   selector: 'app-details',

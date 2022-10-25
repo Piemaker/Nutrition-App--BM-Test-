@@ -1,4 +1,4 @@
-import { DetailsComponent } from './details.component';
+import { DetailsComponent } from './components/details/details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

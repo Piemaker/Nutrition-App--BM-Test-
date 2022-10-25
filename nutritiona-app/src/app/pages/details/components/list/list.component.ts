@@ -1,6 +1,6 @@
-import { Parsed } from './../../../models/interfaces';
 import { Component, Input, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
+import { Parsed } from 'src/app/models/interfaces/interfaces';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -10,8 +10,7 @@ export class ListComponent implements OnInit {
   @Input() ingredients: Parsed[] = [];
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   sortData(sort: Sort) {
     const data = this.ingredients.slice();
     if (!sort.active || sort.direction === '') {

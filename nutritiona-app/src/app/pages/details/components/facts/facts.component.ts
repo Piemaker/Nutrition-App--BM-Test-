@@ -1,4 +1,4 @@
-import { FactList, ResponseI } from './../../../models/interfaces';
+import { FactList, ResponseI } from '../../../../models/interfaces/interfaces';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
