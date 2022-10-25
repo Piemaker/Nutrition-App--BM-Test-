@@ -36,9 +36,11 @@ export class FormComponent implements OnInit {
       duration: 3000,
     });
   }
+  // Payload data are required to be in the form of {ingr : []:string}
   onSubmit(event: SubmitEvent) {
     this.isLoading = true;
     event.preventDefault();
+    // split user data by new line and initialize payload
     let ingredientsArr = this.ingredientsForm
       .get('ingredients')
       ?.value.split('\n');
@@ -53,7 +55,9 @@ export class FormComponent implements OnInit {
           this.router.navigate(['/details']);
         },
         error: (err: Error) => {
-          this.openSnackBar(err.message, 'Close');
+          // Error message isn't user friendly, print a more user friendly message and log error message
+          this.openSnackBar("Error analyzing ingredients", 'Close');
+          console.error(err.message)
           this.isLoading = false;
         },
         complete: () => {

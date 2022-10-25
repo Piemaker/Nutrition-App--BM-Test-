@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
       this.ingredients = data;
       return;
     }
-
+    // sort data in asc/dec order based on selected fields
     this.ingredients = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {

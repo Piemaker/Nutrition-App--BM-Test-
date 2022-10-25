@@ -20,7 +20,11 @@ export class DetailsComponent implements OnInit {
       if (Object.keys(data).length === 0) {
         return;
       }
+      // FACTS DATA
       this.data = data;
+
+      // LIST DATA
+      // minimize drilled data to avoid unnecessary children rendering
       data.ingredients.map((ingredient) => {
         this.ingredientList.push(ingredient.parsed[0]);
       });
