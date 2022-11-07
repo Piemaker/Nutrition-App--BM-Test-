@@ -18,6 +18,8 @@ declare const require: {
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
+  // Set destroyAfterEach to false:
+  { teardown: { destroyAfterEach: false } }
 );
 
 // Then we find all the tests.

@@ -24,7 +24,6 @@ import { of, BehaviorSubject } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
 describe('FormComponent', () => {
-
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
   let de: DebugElement;
@@ -60,6 +59,14 @@ describe('FormComponent', () => {
 
     it('should have textfield empty', () => {
       expect(de.query(By.css('textarea')).nativeElement.innerText).toBeFalsy();
+    });
+    fit('should display input value on textfield', () => {
+      component.ingredientsForm.setValue({ ingredients: '1 cup rice' });
+      
+      fixture.detectChanges();
+      expect(de.query(By.css('textarea')).nativeElement.value).toBe(
+        '1 cup rice'
+      );
     });
     it('should set ingredient field on initialization', () => {
       expect(component.ingredientsForm.get('ingredients')).toBeTruthy();

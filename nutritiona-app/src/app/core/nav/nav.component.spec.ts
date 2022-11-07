@@ -13,7 +13,7 @@ describe('NavComponent', () => {
   let de: DebugElement;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatIconModule, MatTabsModule, RouterTestingModule],
+      imports: [ MatTabsModule, RouterTestingModule],
       declarations: [NavComponent],
     }).compileComponents();
 
