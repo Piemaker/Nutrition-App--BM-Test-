@@ -1,21 +1,19 @@
+import { ResponseI } from './../../../../models/interfaces/interfaces';
 import { By } from '@angular/platform-browser';
 import { NutritionService } from './../../../../services/nutrition.service';
 import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsComponent } from './details.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { apiResponse } from 'src/app/common/resp';
-import { of } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 
-fdescribe('DetailsComponent', () => {
+describe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
   let de: DebugElement;
-  let service: NutritionService;
-  let spy: jasmine.Spy;
+  let mockNutritionService: any;
   beforeEach(async () => {
-    
     // This is used to isolate each component
     @Component({
       selector: 'app-list',
@@ -29,16 +27,23 @@ fdescribe('DetailsComponent', () => {
       template: '<div></div>',
     })
     class FakeAppFacts {}
+
+    mockNutritionService = jasmine.createSpyObj(
+      { postNutritionData: of(apiResponse) },
+      { nutritionsChange: new BehaviorSubject<ResponseI | any>({}) }
+    );
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [],
       declarations: [DetailsComponent, FakeAppFacts, FakeAppList],
-      providers: [NutritionService],
+      providers: [
+        { provide: NutritionService, useValue: mockNutritionService },
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(DetailsComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
-    service = de.injector.get(NutritionService);
-    spy = spyOn(service, 'postNutritionData').and.returnValue(of(apiResponse));
+    // service = de.injector.get(NutritionService);
+    //spy = spyOn(service, 'postNutritionData').and.returnValue(of(apiResponse));
     fixture.detectChanges();
   });
 
@@ -56,7 +61,6 @@ fdescribe('DetailsComponent', () => {
   it(`should render container when data is present '`, () => {
     component.data = apiResponse;
     fixture.detectChanges(); // Must detect changes otherwise it won't pass
-
     expect(de.query(By.css('.container'))).toBeTruthy();
   });
 });

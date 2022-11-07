@@ -11,8 +11,9 @@ export class NavComponent implements OnInit {
   constructor(private _router: Router) {}
 
   links = ['home', 'details'];
-  activeLink = this.links[0];
+  activeLink!: string;
   ngOnInit(): void {
+    this.activeLink = this.links[0];
     this._router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
