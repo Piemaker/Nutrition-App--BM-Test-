@@ -1,6 +1,6 @@
 import { By } from '@angular/platform-browser';
 import { NutritionService } from './../../../../services/nutrition.service';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsComponent } from './details.component';
@@ -8,16 +8,30 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { apiResponse } from 'src/app/common/resp';
 import { of } from 'rxjs';
 
-describe('DetailsComponent', () => {
+fdescribe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
   let de: DebugElement;
   let service: NutritionService;
   let spy: jasmine.Spy;
   beforeEach(async () => {
+    
+    // This is used to isolate each component
+    @Component({
+      selector: 'app-list',
+      template: '<div></div>',
+    })
+    class FakeAppList {
+      @Input() ingredients: any;
+    }
+    @Component({
+      selector: 'app-facts',
+      template: '<div></div>',
+    })
+    class FakeAppFacts {}
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [DetailsComponent],
+      declarations: [DetailsComponent, FakeAppFacts, FakeAppList],
       providers: [NutritionService],
     }).compileComponents();
     fixture = TestBed.createComponent(DetailsComponent);

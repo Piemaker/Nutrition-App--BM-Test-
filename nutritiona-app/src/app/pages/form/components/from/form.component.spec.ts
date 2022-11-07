@@ -1,7 +1,10 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormDataI } from './../../../../models/interfaces/interfaces';
+import {
+  FormDataI,
+  ResponseI,
+} from './../../../../models/interfaces/interfaces';
 import { NutritionService } from './../../../../services/nutrition.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './../../../../modules/material/material.module';
@@ -17,28 +20,25 @@ import {
 import { FormComponent } from './form.component';
 import { apiResponse } from 'src/app/common/resp';
 import { Component, DebugElement } from '@angular/core';
-import { of } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
-fdescribe('FormComponent', () => {
-  // Instead of adding material module we define an empty component for isolation
-  @Component({
-    selector: 'mat-spinner',
-    template: '<div></div>',
-  })
-  class FakeMatSpinnerComponent {}
+describe('FormComponent', () => {
+
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
   let de: DebugElement;
   let mockNutritionService: any;
+  let mockSnackBarService: any;
   beforeEach(async () => {
     mockNutritionService = jasmine.createSpyObj(
-      ['postNutritionData'],
-      ['nutritionChange']
+      { postNutritionData: of(apiResponse) },
+      { nutritionsChange: new BehaviorSubject<ResponseI | any>(apiResponse) }
     );
+    mockSnackBarService = jasmine.createSpyObj(['SnackBar']);
     await TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, ReactiveFormsModule, MaterialModule],
-      declarations: [FormComponent, FakeMatSpinnerComponent],
+      declarations: [FormComponent],
       providers: [
         { provide: NutritionService, useValue: mockNutritionService },
       ],
@@ -98,9 +98,12 @@ fdescribe('FormComponent', () => {
   describe('test onSubmit functionality', () => {
     let form: any;
     let fnc: any;
-    beforeEach(() => {
+    let router: any;
+    beforeEach(async () => {
+      router = de.injector.get(Router);
+      spyOn(router, 'navigate').and.stub();
       form = de.query(By.css('form'));
-      component.isLoading = false;
+      component.isLoading = true;
       component.ingredientsForm.setValue({
         ingredients: '1 cup rice',
       });
@@ -108,16 +111,14 @@ fdescribe('FormComponent', () => {
       fnc = spyOn(component, 'onSubmit').and.callThrough();
       form.triggerEventHandler('ngSubmit', { preventDefault: () => {} });
     });
-    it('should set isLoading on submit', () => {
+    it('should set isLoading on submit to false when it ends', () => {
       expect(fnc).toHaveBeenCalled();
-      expect(component.isLoading).toBe(true);
+      expect(component.isLoading).toBe(false);
     });
     it('should call postNutritionData only once', () => {
       expect(mockNutritionService.postNutritionData).toHaveBeenCalledTimes(1);
     });
     it('should navigate to /details on success', fakeAsync(() => {
-      let router = de.injector.get(Router);
-      spyOn(router, 'navigate').and.stub();
       expect(router.navigate).toHaveBeenCalledWith(['/details']);
     }));
   });

@@ -44,9 +44,8 @@ export class FormComponent implements OnInit {
     let ingredientsArr = this.ingredientsForm
       .get('ingredients')
       ?.value.split('\n');
-
-    let ingredientsObj = { ingr: ingredientsArr };
-    this._nutritionService
+      let ingredientsObj = { ingr: ingredientsArr };
+      this._nutritionService
       .postNutritionData({ formData: ingredientsObj })
       .subscribe({
         next: (data) => {
