@@ -24,7 +24,7 @@ describe('DetailsComponent', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
     service = de.injector.get(NutritionService);
-    spy = spyOn(service, "postNutritionData").and.returnValue(of(apiResponse))
+    spy = spyOn(service, 'postNutritionData').and.returnValue(of(apiResponse));
     fixture.detectChanges();
   });
 
@@ -39,10 +39,10 @@ describe('DetailsComponent', () => {
     component.toggleFacts();
     expect(component.isShowFacts).toBeTruthy();
   });
+  it(`should render container when data is present '`, () => {
+    component.data = apiResponse;
+    fixture.detectChanges(); // Must detect changes otherwise it won't pass
 
-    // it(`should call postNutritionData on time and render the view '`, () => {
-    //   expect(spy).toHaveBeenCalled();
-    //   expect(spy.calls.all().length).toBe(1)
-    
-    // });
+    expect(de.query(By.css('.container'))).toBeTruthy();
+  });
 });

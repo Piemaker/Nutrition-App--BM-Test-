@@ -46,7 +46,6 @@ export class FormComponent implements OnInit {
       ?.value.split('\n');
 
     let ingredientsObj = { ingr: ingredientsArr };
-
     this._nutritionService
       .postNutritionData({ formData: ingredientsObj })
       .subscribe({
@@ -56,8 +55,8 @@ export class FormComponent implements OnInit {
         },
         error: (err: Error) => {
           // Error message isn't user friendly, print a more user friendly message and log error message
-          this.openSnackBar("Error analyzing ingredients", 'Close');
-          console.error(err.message)
+          this.openSnackBar('Error analyzing ingredients', 'Close');
+          console.error(err.message);
           this.isLoading = false;
         },
         complete: () => {

@@ -1,6 +1,7 @@
-import { ResponseI } from "../models/interfaces/interfaces";
+import { Parsed } from './../models/interfaces/interfaces';
+import { ResponseI } from '../models/interfaces/interfaces';
 
-export const apiResponse : ResponseI = {
+export const apiResponse: ResponseI = {
   uri: 'http://www.edamam.com/ontologies/edamam.owl#recipe_4cd0ec1d6b4d4ea49c0664bedc7cd2bd',
   yield: 4,
   calories: 702,
@@ -461,3 +462,149 @@ export const apiResponse : ResponseI = {
     },
   },
 };
+
+export const parsed: Parsed[] = [
+  {
+    quantity: 1,
+    measure: 'cup',
+    foodMatch: 'rice',
+    food: 'rice',
+    foodId: 'food_bpumdjzb5rtqaeabb0kbgbcgr4t9',
+    weight: 195,
+    retainedWeight: 195,
+    nutrients: {
+      RIBF: {
+        label: 'Riboflavin',
+        quantity: 0.09359999999999999,
+        unit: 'mg',
+      },
+      VITD: {
+        label: 'Vitamin D',
+        quantity: 0,
+        unit: 'IU',
+      },
+      THIA: {
+        label: 'Thiamin',
+        quantity: 0.1365,
+        unit: 'mg',
+      },
+      FAPU: {
+        label: 'Fatty acids, total polyunsaturated',
+        quantity: 0.30225,
+        unit: 'g',
+      },
+      NIA: {
+        label: 'Niacin',
+        quantity: 3.12,
+        unit: 'mg',
+      },
+      ENERC_KCAL: {
+        label: 'Energy',
+        quantity: 702,
+        unit: 'kcal',
+      },
+      FASAT: {
+        label: 'Fatty acids, total saturated',
+        quantity: 0.3081,
+        unit: 'g',
+      },
+      VITC: {
+        label: 'Vitamin C, total ascorbic acid',
+        quantity: 0,
+        unit: 'mg',
+      },
+      PROCNT: {
+        label: 'Protein',
+        quantity: 12.8895,
+        unit: 'g',
+      },
+      CHOLE: {
+        label: 'Cholesterol',
+        quantity: 0,
+        unit: 'mg',
+      },
+      FAMS: {
+        label: 'Fatty acids, total monounsaturated',
+        quantity: 0.35295000000000004,
+        unit: 'g',
+      },
+      CHOCDF: {
+        label: 'Carbohydrate, by difference',
+        quantity: 154.71300000000002,
+        unit: 'g',
+      },
+      FAT: {
+        label: 'Total lipid (fat)',
+        quantity: 1.131,
+        unit: 'g',
+      },
+      VITB6A: {
+        label: 'Vitamin B-6',
+        quantity: 0.28275,
+        unit: 'mg',
+      },
+      VITB12: {
+        label: 'Vitamin B-12',
+        quantity: 0,
+        unit: 'µg',
+      },
+      WATER: {
+        label: 'Water',
+        quantity: 25.1355,
+        unit: 'g',
+      },
+      K: {
+        label: 'Potassium, K',
+        quantity: 167.7,
+        unit: 'mg',
+      },
+      P: {
+        label: 'Phosphorus, P',
+        quantity: 210.6,
+        unit: 'mg',
+      },
+      NA: {
+        label: 'Sodium, Na',
+        quantity: 1.95,
+        unit: 'mg',
+      },
+      ZN: {
+        label: 'Zinc, Zn',
+        quantity: 2.262,
+        unit: 'mg',
+      },
+      CA: {
+        label: 'Calcium, Ca',
+        quantity: 17.55,
+        unit: 'mg',
+      },
+      MG: {
+        label: 'Magnesium, Mg',
+        quantity: 68.25,
+        unit: 'mg',
+      },
+      FE: {
+        label: 'Iron, Fe',
+        quantity: 1.56,
+        unit: 'mg',
+      },
+      FOLFD: {
+        label: 'Folate, food',
+        quantity: 17.55,
+        unit: 'µg',
+      },
+      FOLAC: {
+        label: 'Folic acid',
+        quantity: 0,
+        unit: 'µg',
+      },
+      FOLDFE: {
+        label: 'Folate, DFE',
+        quantity: 17.55,
+        unit: 'µg',
+      },
+    },
+    measureURI: 'http://www.edamam.com/ontologies/edamam.owl#Measure_cup',
+    status: 'OK',
+  },
+];

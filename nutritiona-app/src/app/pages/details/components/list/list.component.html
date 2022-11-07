@@ -1,18 +1,18 @@
-<table class="table"  matSort (matSortChange)="sortData($event)">
+<table class="table" matSort (matSortChange)="sortData($event)">
     <tr>
-        <th mat-sort-header="Qty">Qty</th>
-        <th mat-sort-header="Unit">Unit</th>
-        <th mat-sort-header="Food">Food</th>
-        <th mat-sort-header="Calories">Calories</th>
-        <th mat-sort-header="Weight">Weight</th>
+        <th id = "header-qty"mat-sort-header="Qty">Qty</th>
+        <th id = "header-unit"mat-sort-header="Unit">Unit</th>
+        <th id = "header-food"mat-sort-header="Food">Food</th>
+        <th id = "header-cal"mat-sort-header="Calories">Calories</th>
+        <th id = "header-weight"mat-sort-header="Weight">Weight</th>
     </tr>
 
-    <tr style="word-wrap:break-word;" *ngFor="let ingredient of ingredients">
-        <td>{{ingredient?.quantity}}</td>
-        <td>{{ingredient.measure}}</td>
-        <td>{{ingredient.food}}</td>
-        <td>{{ingredient.nutrients.ENERC_KCAL.quantity | number: '1.0-2'}} Kcal</td>
-        <td>{{ingredient.weight | number: '1.0-2'}} g</td>
+    <tr style="word-wrap:break-word;" *ngFor="let ingredient of ingredients; let i = index">
+        <td id="{{'table-q-'+i}}">{{ingredient?.quantity}}</td>
+        <td id="{{'table-m-'+i}}">{{ingredient.measure}}</td>
+        <td id="{{'table-f-'+i}}">{{ingredient.food}}</td>
+        <td id="{{'table-n-'+i}}">{{ingredient.nutrients.ENERC_KCAL.quantity | number: '1.0-2'}} Kcal</td>
+        <td id="{{'table-w-'+i}}">{{ingredient.weight | number: '1.0-2'}} g</td>
 
 
     </tr>
