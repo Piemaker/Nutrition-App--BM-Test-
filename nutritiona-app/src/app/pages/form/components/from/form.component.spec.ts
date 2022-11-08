@@ -60,7 +60,7 @@ describe('FormComponent', () => {
     it('should have textfield empty', () => {
       expect(de.query(By.css('textarea')).nativeElement.innerText).toBeFalsy();
     });
-    fit('should display input value on textfield', () => {
+    it('should display input value on textfield', () => {
       component.ingredientsForm.setValue({ ingredients: '1 cup rice' });
       
       fixture.detectChanges();
