@@ -19,7 +19,6 @@ export class NutritionService {
   }: {
     formData: FormDataI;
   }): Observable<ResponseI> {
-    debugger
     return this._httpClient.post<ResponseI>(
       `${environment.BASE_URL}/nutrition-details`,
       formData

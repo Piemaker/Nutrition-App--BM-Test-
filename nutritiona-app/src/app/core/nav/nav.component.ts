@@ -13,7 +13,6 @@ export class NavComponent implements OnInit {
   links = ['home', 'details'];
   activeLink!: string;
   ngOnInit(): void {
-    debugger;
     this.activeLink = this.links[0];
     this._router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
