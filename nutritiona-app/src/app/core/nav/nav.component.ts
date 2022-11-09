@@ -13,12 +13,13 @@ export class NavComponent implements OnInit {
   links = ['home', 'details'];
   activeLink!: string;
   ngOnInit(): void {
+    debugger;
     this.activeLink = this.links[0];
     this._router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        // get the route name without the '/'
-        this.activeLink = event.url.split('/')[1];
+        // get the current route
+        this.activeLink = event.url.split('/')[event.url.split('/').length - 1];
       });
   }
 }
