@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit {
   constructor(private _nutritionService: NutritionService) {}
   ngOnInit(): void {
     this._nutritionService.nutritionsChange.subscribe((data: ResponseI) => {
-    debugger;
 
       if (Object.keys(data).length === 0) {
         return;

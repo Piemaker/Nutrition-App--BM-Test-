@@ -11,12 +11,15 @@ import { HttpClient } from '@angular/common/http';
 export class NutritionService {
   nutritionsChange = new BehaviorSubject<ResponseI | any>({});
 
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) { }
+  
+
   postNutritionData({
     formData,
   }: {
     formData: FormDataI;
   }): Observable<ResponseI> {
+    debugger
     return this._httpClient.post<ResponseI>(
       `${environment.BASE_URL}/nutrition-details`,
       formData
