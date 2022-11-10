@@ -146,3 +146,15 @@ interface ENERCKCAL {
 export interface FormDataI {
   ingr: string[];
 }
+
+export interface ingredientsDataI {
+  quantity: number;
+  measure: string;
+  food: string;
+  weight: number;
+  nutrients: {
+    ENERC_KCAL: {
+      quantity : number
+    }
+  };
+}

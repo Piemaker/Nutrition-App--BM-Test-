@@ -14,10 +14,7 @@ describe('EdamamAPIInterceptor', () => {
 
   const app_key = environment.APP_KEY;
   const app_id = environment.APP_ID;
-  const queryParams = {
-    app_key,
-    app_id,
-  };
+
   // the HTTP_INTERCEPTORS is needed for the mocked httpClient to use the interceptor
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -34,14 +31,13 @@ describe('EdamamAPIInterceptor', () => {
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
+  xit('should be created', () => {
     const interceptor: EdamamAPIInterceptor =
       TestBed.inject(EdamamAPIInterceptor);
     expect(interceptor).toBeTruthy();
   });
   it('should add queryParams to each http request', () => {
     httpClient.post('/data', '').subscribe((data) => {
-      //expect(data).toEqual(testData);
     });
     // if interceptor is working should augment the /data route
     const request = httpTestingController.expectOne(

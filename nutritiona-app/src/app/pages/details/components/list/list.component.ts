@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {}
   sortData(sort: Sort) {
+    debugger
     const data = this.ingredients.slice();
     if (!sort.active || sort.direction === '') {
       this.ingredients = data;
